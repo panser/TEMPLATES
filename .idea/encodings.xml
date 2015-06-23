@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/Frontend/ITVDN/05.JQuery/Урок 7. Библиотека jQuery UI" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/Frontend/ITVDN/05.JQuery/Урок 7. Библиотека jQuery UI/001_Samples/001_accordion/002_fillspace.html" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/Frontend/ITVDN/05.JQuery/Урок 7. Библиотека jQuery UI/001_Samples/001_accordion/003_no-auto-height.html" charset="windows-1251" />
+  </component>
 </project>
