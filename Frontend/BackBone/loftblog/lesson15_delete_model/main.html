@@ -2,13 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>title</title>
+    <title>Титл</title>
 </head>
 <body>
 
-<script id="personTemplate" type="text/template">
-    <strong><%= name %></strong> (<%= age %>) - <%= job %>
-</script>
+<h1>Список задач</h1>
+<div class="tasks">
+    <script type="text/template" id="taskTemplate">
+        <span><%= title %></span> <button class="edit">Edit</button> <button class="delete">Delete</button>
+    </script>
+</div>
 
 <script src="../../bower_components/underscore/underscore.js"></script>
 <script src="../../bower_components/jquery-legacy/dist/jquery.js"></script>

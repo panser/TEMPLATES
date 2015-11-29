@@ -1,40 +1,40 @@
-////Начнем с анонимной функции.
-//(function() {
-//
-//}());
-//
-////создадим глобальный объект App, который и будет являться нашим пространством имен.
-//(function() {
-//    window.App = {};
-//}());
-//
-////Хорошей практикой является одна, глобальная функция.
-//// Но так как у нас проект маленький и всего один хэлпер,
-//// предлагаю во избежание большой вложенности и для простоты его использования, забить его во вторую глобальную переменную.
-//(function() {
-//    window.App = {};
-//
-//    //хэлпер шаблона
-//    window.template = function(id) {
-//        return _.template( $('#' + id).html() );
-//    };
-//}());
-//
-////Для наших моделей, видов и коллекций, создадим подпространства, для того чтобы было удобно управлять этими сущностями.
-//(function() {
-//    window.App = {
-//        Models: {},
-//        Views: {},
-//        Collections: {}
-//    };
-//
-//    //хэлпер шаблона
-//    window.template = function(id) {
-//        return _.template( $('#' + id).html() );
-//    };
-//}());
-//
-//
+//Начнем с анонимной функции.
+(function() {
+
+}());
+
+//создадим глобальный объект App, который и будет являться нашим пространством имен.
+(function() {
+    window.App = {};
+}());
+
+//Хорошей практикой является одна, глобальная функция.
+// Но так как у нас проект маленький и всего один хэлпер,
+// предлагаю во избежание большой вложенности и для простоты его использования, забить его во вторую глобальную переменную.
+(function() {
+    window.App = {};
+
+    //хэлпер шаблона
+    window.template = function(id) {
+        return _.template( $('#' + id).html() );
+    };
+}());
+
+//Для наших моделей, видов и коллекций, создадим подпространства, для того чтобы было удобно управлять этими сущностями.
+(function() {
+    window.App = {
+        Models: {},
+        Views: {},
+        Collections: {}
+    };
+
+    //хэлпер шаблона
+    window.template = function(id) {
+        return _.template( $('#' + id).html() );
+    };
+}());
+
+
 
 //Теперь перепишем весь наш проект, с учетом пространства имен.
 (function() {
@@ -60,7 +60,6 @@
         }
     });
 
-
     //Вид одного человека
     App.Views.Person = Backbone.View.extend({
         tagName: 'li',
@@ -80,12 +79,33 @@
         }
     });
 
-
+    //Список людей
     App.Collections.People = Backbone.Collection.extend({
-        model: App.Views.Person
+        model: App.Models.Person
     });
 
-    var peopleCollection = new App.Collections.People([
+
+    //Вид списка людей
+    App.Views.People = Backbone.View.extend({
+        tagName: 'ul',
+
+        initialize: function() {
+        },
+
+        render: function() {
+            this.collection.each(function(person) {
+                var personView = new App.Views.Person({model: person});
+
+                this.$el.append(personView.render().el);
+            }, this);
+
+            return this;
+        }
+
+    });
+
+
+   var peopleCollection = new App.Collections.People([
         {
             name: 'Петр',
             age: 20,
