@@ -1,0 +1,20 @@
+
+<!--переменные для AngularJs используем обьектные (main.*) что бы не ловить глики из-за-->
+<!--прототипного наследования scop-ов в AngularJs-->
+<div class="button" ng-click="main.showSidebar = true"></div>
+<div class="sidebar"
+     ng-if="main.showSidebar"
+     action-on-click-outside="main.showSidebar = false"
+  >
+  <span>1</span>
+</div>
+
+
+<div class="button2" ng-click="main.showSidebar2 = true"></div>
+<div class="sidebar2 "
+     ng-if="main.showSidebar2"
+     action-on-click-outside="main.showSidebar2 = false"
+  >
+  <button>ClickMe</button>
+</div>
+

@@ -3,7 +3,9 @@
 
   angular
     .module('tst4')
-    .controller('MainController', MainController);
+    .controller('MainController', MainController)
+    .controller('Lesson2Controller', Lesson2Controller)
+  ;
 
   /** @ngInject */
   function MainController($timeout, webDevTec, toastr) {
@@ -36,4 +38,11 @@
       });
     }
   }
+
+  /** @ngInject */
+  function Lesson2Controller() {
+    var vm = this;
+
+  }
+
 })();
