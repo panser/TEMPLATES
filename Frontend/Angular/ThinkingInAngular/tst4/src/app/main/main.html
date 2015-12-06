@@ -1,32 +1,22 @@
-<div class="container">
 
-  <div>
-    <acme-navbar creation-date="main.creationDate"></acme-navbar>
-  </div>
-
-  <div class="jumbotron">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="main.classAnimation">
-      <a class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</a>
-    </p>
-    <p>
-      With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
-    </p>
-  </div>
-
-  <div class="col" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-    <div class="thumbnail">
-      <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-      <div class="caption">
-        <h3>{{ awesomeThing.title }}</h3>
-        <p>{{ awesomeThing.description }}</p>
-        <p><a ng-href="{{ awesomeThing.url }}">{{ awesomeThing.url }}</a></p>
-      </div>
-    </div>
-  </div>
-
+<!--переменные для AngularJs используем обьектные (main.*) что бы не ловить глики из-за-->
+<!--прототипного наследования scop-ов в AngularJs-->
+<div class="button" ng-click="main.showSidebar = true"></div>
+<div class="sidebar"
+     ng-if="main.showSidebar"
+     action-on-click-outside="main.showSidebar = false"
+  >
+  <span>1</span>
 </div>
+
+
+<div class="button2" ng-click="main.showSidebar2 = true"></div>
+<div class="sidebar2 "
+     ng-if="main.showSidebar2"
+     action-on-click-outside="main.showSidebar2 = false"
+  >
+  <button>ClickMe</button>
+</div>
+
+
+<div class="button3" ng-click="main.showPopup();">show popup</div>

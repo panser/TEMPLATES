@@ -4,17 +4,31 @@
   angular
     .module('tst4')
     .controller('MainController', MainController)
-    .controller('Lesson2Controller', Lesson2Controller)
   ;
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+  function MainController($timeout, webDevTec, toastr, myPopup) {
     var vm = this;
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
     vm.creationDate = 1449335223343;
     vm.showToastr = showToastr;
+
+    vm.showPopup = function(){
+      myPopup.open({
+        template: '<div>HELLO WORLD <button ng-click="close(1)">1</button> <button ng-click="close(2)">2</button></div>',
+        controller: function(){},
+        resolve: {
+          testResolve: function($q){
+            return $q.when(true);
+          }
+        }
+      }).then(function(data){
+        alert(data);
+      });
+    };
+
 
     activate();
 
@@ -37,28 +51,8 @@
         awesomeThing.rank = Math.random();
       });
     }
-  }
-
-  /** @ngInject */
-  function Lesson2Controller(myPopup) {
-    var vm = this;
-
-    vm.showPopup = function(){
-      myPopup.open({
-        template: '<div>HELLO WORLD <button ng-click="close(1)">1</button> <button ng-click="close(2)">2</button></div>',
-        controller: function(){},
-        resolve: {
-          testResolve: function($q){
-            return $q.when(true);
-          }
-        }
-      }).then(function(data){
-        alert(data);
-      });
-    }
-
-
 
   }
+
 
 })();
