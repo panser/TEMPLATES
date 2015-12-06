@@ -151,3 +151,26 @@ hr {
   right: 0;
   background-color: lightyellow;
 }
+
+/*for angular animation*/
+/*при появлении елемента*/
+.sidebar.ng-enter{
+  left: -200px;
+  transition-property: left;
+  transition-duration: 5s;
+}
+
+.sidebar.ng-enter-active{
+  left: 0;
+}
+
+/*при исчезновении елемента*/
+.sidebar.ng-leave-active{
+  left: -200px !important;
+}
+
+.sidebar.ng-leave{
+  left: 0;
+  transition-property: left;
+  transition-duration: 5s;
+}

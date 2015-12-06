@@ -24,14 +24,21 @@ angular.module('actionOnClickOutside', [])
             curElement = curElement.parentNode;
           }
 
-          scope.$eval(attrs.actionOnClickOutside);
+           scope.$eval(attrs.actionOnClickOutside);
           scope.$applyAsync();
         }
 
         $document[0].addEventListener('click', listener, true);
         el.on('$destroy', function(){
+          console.log('Element destroyed');
           $document[0].removeEventListener('click', listener, true);
         });
+
+        scope.$on('$destroy', function(){
+          console.log('Scope destroyed');
+        });
+
+
       }
     }
   });
