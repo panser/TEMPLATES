@@ -40,8 +40,24 @@
   }
 
   /** @ngInject */
-  function Lesson2Controller() {
+  function Lesson2Controller(myPopup) {
     var vm = this;
+
+    vm.showPopup = function(){
+      myPopup.open({
+        template: '<div>HELLO WORLD <button ng-click="close(1)">1</button> <button ng-click="close(2)">2</button></div>',
+        controller: function(){},
+        resolve: {
+          testResolve: function($q){
+            return $q.when(true);
+          }
+        }
+      }).then(function(data){
+        alert(data);
+      });
+    }
+
+
 
   }
 

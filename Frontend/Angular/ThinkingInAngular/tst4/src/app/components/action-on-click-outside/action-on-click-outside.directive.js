@@ -7,7 +7,7 @@
   //inj.get('actionOnClickOutsideDirective')
 
 angular.module('actionOnClickOutside', [])
-  .directive('actionOnClickOutside', function($document){
+  .directive('actionOnClickOutside', function($document, $log){
     return{
       //E - для компонента
       //A - добавление поведения
@@ -30,12 +30,12 @@ angular.module('actionOnClickOutside', [])
 
         $document[0].addEventListener('click', listener, true);
         el.on('$destroy', function(){
-          console.log('Element destroyed');
+          $log.log('Element destroyed');
           $document[0].removeEventListener('click', listener, true);
         });
 
         scope.$on('$destroy', function(){
-          console.log('Scope destroyed');
+          $log.log('Scope destroyed');
         });
 
 
