@@ -29,7 +29,8 @@
         }
     );
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/lesson2');
+    //$urlRouterProvider.otherwise('/');
   }
 
 })();
