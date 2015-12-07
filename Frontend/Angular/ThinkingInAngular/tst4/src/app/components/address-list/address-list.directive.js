@@ -22,10 +22,13 @@ angular.module('tst4')
   .directive('addressList', function(){
     return{
       restrict: 'E',
+      //ng-transclude - механизм позволяющий захватить то что в директиве на момент ее инициализации,
+      // между открывающим и закрывающими тегами. Для вставки шаблнов.
       transclude: true,
       template: [
         '<ul>',
           '<li ng-repeat="item in items">',
+            //'<div ng-transclude></div>',
             '<div my-insert></div>',
           '</li>',
         '</ul>'
